@@ -58,9 +58,9 @@ def list_removed():
   user_prompt()
   
 def help():
-  print("Enter questions and answers in this format: question1,.answer1..question2,.answer2..\n")
+  print("Enter questions and answers in this format: question1,.answer1..question2,.answer2..")
   print("To study and rate cards, type -study.\nTo list all cards, type -list.\nTo remove a card, type -remove(index). The index is shown in list view.\nTo list removed cards, type -listrem.\nTo get help, type -help.")
-  print("While studying, you will first be shown the card's 'front', it's 'question'. \nBy typing -f, the card will flip and show the answer. \nNext, you will be prompted to rate your mastery of the card. \nStop the study session by typing -stop.")
+  print("\nWhile studying, you will first be shown the card's 'front', it's 'question'. \nBy typing -f, the card will flip and show the answer. \nNext, you will be prompted to rate your mastery of the card. \nStop the study session by typing -stop.")
   print("When a new card is entered, its default 'rating' is 10. \nWhile studying, you will rate the cards from 1-5, with 5 being the least understood and 1 being the most understood.")
   user_prompt()
 
