@@ -49,14 +49,20 @@ def list_cards():
     print("You currently have no cards")
   else:
     list_table=PrettyTable()
-    list_table.field_names=["Question", "Answer", "Rating"]
+    list_table.field_names=["Index","Question", "Answer", "Rating"]
     for i in range(0, len(cards)):
-      list_table.add_row([str(cards[i][0]), str(cards[i][1]), str(cards[i][2])])
+      list_table.add_row([i, str(cards[i][0]), str(cards[i][1]), str(cards[i][2])])
     print(list_table)
   user_prompt()
   
 def remove_card(index):
-  print("remove index "+index)
+  index=int(index)
+  if index>=len(cards) or index<0:
+    print("index out of bounds.")
+  else:
+    print(str(cards[index])+" has been deleted.")
+    removed.append(cards[index])
+    cards.remove(cards[index])
   user_prompt()
   
 def list_removed():
