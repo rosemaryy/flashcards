@@ -1,0 +1,49 @@
+cards=[]
+removed=[]
+def user_input():
+  user_input = input("What would you like to do?\n")
+  if user_input.lower()=='-study':
+    study()
+  elif user_input.lower()=='list':
+    list()
+  elif user_input[0:8].lower()=='-remove(' and user_input[len(user_input)-1]==")" and user_input[9:len(user_input)-1].isdigit():
+    remove(user_input[9:len(user_input)-1])
+  elif user_input.lower()=='-listrem':
+    list_removed()
+  elif user_input.lower()=='-help':
+    help()
+  elif user_input[0:2]!=',.' and user_input[0:2]!='..' and ',.' in user_input and '..' in user_input:
+    if user_input.count(',.')!=user_input.count('..'):
+      print("hmm, make sure you have an equal number of ',.' and '..'!")
+    else:
+      add_card(user_input)
+def add_card(card_string):
+  separated_cards=card_string.split('..')
+  for i in range(0, len(separated_cards)):
+    if ',.' not in separated_cards[i]:
+      return "Error: "+str(separated_cards[i])+" is not separated into question and answer"
+    elif separated_cards[i].count(',.')>1:
+      return "Error: "+str(separated_cards[i])+" has too many answers."
+    else:
+      if separated_cards[i][len(separated_cards[i])-2:len(separated_cards[i])] ==',.':
+        return "Error, make sure there is an answer!"
+      else:
+      question = separated_cards[i][0:separated_cards[i].index(',.')]
+      answer = separated_cards[i][separated_cards[i].index(',.')+2:len(separated_cards[i])]
+      cards.append([question, answer])
+def study():
+
+def list():
+
+def remove(index):
+
+def list_removed():
+
+def help():
+  print("Enter questions and answers in this format: question1,.answer1..question2,.answer2..\n")
+  print("To study and rate cards, type -study.\nTo list all cards, type -list.\nTo remove a card, type -remove(index). The index is shown in list view.\nTo list removed cards, type -listrem.\nTo get help, type -help.")
+  print("While studying, you will first be shown the card's 'front', it's 'question'. \nBy typing -f, the card will flip and show the answer. \nNext, you will be prompted to rate your mastery of the card.")
+  print("When a new card is entered, its default 'rating' is 10. \nWhile studying, you will rate the cards from 1-5, with 5 being the least understood and 1 being the most understood.")
+
+help()
+user_input()
