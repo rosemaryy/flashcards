@@ -56,8 +56,8 @@ def study():
 
 def showcard():
   temp=[]
-  for int i in range(0, len(cards):
-    for int j in range(0, cards[i][2]):
+  for i in range(0, len(cards):
+    for j in range(0, cards[i][2]):
       temp.append(cards[i])
   current_card=random.choice(temp)
   print(current_card[1])
