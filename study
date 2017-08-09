@@ -8,7 +8,7 @@ def user_prompt():
     study()
   elif user_input.lower()=='-list':
     list_cards()
-  elif user_input[0:8].lower()=='-remove(' and user_input[len(user_input)-1]==")" and user_input[9:len(user_input)-1].isdigit():
+  elif user_input[0:8].lower()=='-remove(' and user_input[len(user_input)-1]==")" and user_input[8:len(user_input)-1].isdigit():
     remove_card(user_input[9:len(user_input)-1])
   elif user_input.lower()=='-listrem':
     list_removed()
