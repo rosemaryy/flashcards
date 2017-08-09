@@ -44,16 +44,21 @@ def add_card(card_string):
 def study():
   showcard()
   study_input=input("to flip, type -f")
-  while study_input.lower() != '-stop':
-    current_card=showcard()
-    study_input=input("to flip, type -f")
-    if study_input.lower()!='-f':
-      print("error, type -f to flip")
-    else:
-      print(current_card[2])
-      study_input=input("Rate from 1-5.")
-      current_card[2]=study_input
-  user_prompt()
+  check_study_stop(study_input)
+  current_card=showcard()
+  study_input=input("to flip, type -f")
+  check_study_stop(study_input)
+  if study_input.lower()!='-f':
+    print("error, type -f to flip")
+  else:
+    print(current_card[2])
+    study_input=input("Rate from 1-5.")
+    current_card[2]=study_input
+    study()
+
+def check_study_stop(input):
+  if input.lower()=='-stop':
+    user_prompt()
 
 def showcard():
   temp=[]
