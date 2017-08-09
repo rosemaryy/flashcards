@@ -1,3 +1,4 @@
+from prettytable import PrettyTable
 cards=[]
 removed=[]
 
@@ -47,9 +48,11 @@ def list_cards():
   if len(cards)==0:
     print("You currently have no cards")
   else:
-    print("Question \tAnswer \tRating")
+    list_table=PrettyTable()
+    list_table.field_names=["Question", "Answer", "Rating"]
     for i in range(0, len(cards)):
-      print(str(cards[i][0])+" \t"+str(cards[i][1])+" \t"+str(cards[i][2]))
+      list_table.add_row(str(cards[i][0]), str(cards[i][1]), str(cards[i][2]))
+    print list_table
   user_prompt()
   
 def remove_card(index):
