@@ -65,7 +65,7 @@ def showcard():
   temp=[]
   for i in range(0, len(cards)):
     print(str(cards[i][2])+"=rating")
-    print("the card is "+str(cards[i])
+    print("the card is "+str(cards[i]))
     for j in range(0, cards[i][2]):
       temp.append(cards[i])
   current_card=random.choice(temp)
