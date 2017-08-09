@@ -1,6 +1,7 @@
 cards=[]
 removed=[]
-def user_input():
+
+def user_prompt():
   user_input = input("What would you like to do?\n")
   if user_input.lower()=='-study':
     study()
@@ -17,6 +18,7 @@ def user_input():
       print("hmm, make sure you have an equal number of ',.' and '..'!")
     else:
       add_card(user_input)
+
 def add_card(card_string):
   separated_cards=card_string.split('..')
   for i in range(0, len(separated_cards)):
@@ -28,22 +30,39 @@ def add_card(card_string):
       if separated_cards[i][len(separated_cards[i])-2:len(separated_cards[i])] ==',.':
         return "Error, make sure there is an answer!"
       else:
-      question = separated_cards[i][0:separated_cards[i].index(',.')]
-      answer = separated_cards[i][separated_cards[i].index(',.')+2:len(separated_cards[i])]
-      cards.append([question, answer])
+        question = separated_cards[i][0:separated_cards[i].index(',.')]
+        answer = separated_cards[i][separated_cards[i].index(',.')+2:len(separated_cards[i])]
+        cards.append([question, answer, 10])
+  user_prompt()
+
 def study():
+  study_input=input("What next?")
+  print study_input
+  user_prompt()
 
 def list():
-
+  if len(cards)==0:
+    print("You currently have no cards")
+  else:
+    print("Question \tAnswer \tRating")
+    for i in range(0, len(cards)):
+      print(cards[i][0]+ \t"+cards[i][1]+" \t"+cards[i][2])
+  user_prompt()
+  
 def remove(index):
-
+  print("remove index "+index)
+  user_prompt()
+  
 def list_removed():
-
+  print("list removed")
+  user_prompt()
+  
 def help():
   print("Enter questions and answers in this format: question1,.answer1..question2,.answer2..\n")
   print("To study and rate cards, type -study.\nTo list all cards, type -list.\nTo remove a card, type -remove(index). The index is shown in list view.\nTo list removed cards, type -listrem.\nTo get help, type -help.")
-  print("While studying, you will first be shown the card's 'front', it's 'question'. \nBy typing -f, the card will flip and show the answer. \nNext, you will be prompted to rate your mastery of the card.")
+  print("While studying, you will first be shown the card's 'front', it's 'question'. \nBy typing -f, the card will flip and show the answer. \nNext, you will be prompted to rate your mastery of the card. \nStop the study session by typing -stop.")
   print("When a new card is entered, its default 'rating' is 10. \nWhile studying, you will rate the cards from 1-5, with 5 being the least understood and 1 being the most understood.")
+  user_prompt()
 
 help()
-user_input()
+user_prompt()
