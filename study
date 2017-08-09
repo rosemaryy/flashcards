@@ -53,6 +53,7 @@ def study():
   else:
     print(current_card[2])
     study_input=input("Rate from 1-5.")
+    print("past rate")
     current_card[2]=study_input
     study()
 
