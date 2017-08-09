@@ -46,7 +46,7 @@ def list():
   else:
     print("Question \tAnswer \tRating")
     for i in range(0, len(cards)):
-      print(cards[i][0]+ \t"+cards[i][1]+" \t"+cards[i][2])
+      print(cards[i][0]+" \t"+cards[i][1]+" \t"+cards[i][2])
   user_prompt()
   
 def remove(index):
