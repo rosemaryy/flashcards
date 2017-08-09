@@ -27,7 +27,7 @@ def user_prompt():
 def add_card(card_string):
   print('inside add card function')
   separated_cards=card_string.split('..')
-  for i in range(0, len(separated_cards)):
+  for i in range(0, len(separated_cards)-1):
     print(separated_cards[i])
     if separated_cards[i].index(',.')==-1:
       print("Error: "+str(separated_cards[i])+" is not separated into question and answer")
