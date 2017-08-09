@@ -29,12 +29,12 @@ def add_card(card_string):
   separated_cards=card_string.split('..')
   for i in range(0, len(separated_cards)):
     if ',.' not in separated_cards[i]:
-      return "Error: "+str(separated_cards[i])+" is not separated into question and answer"
+     print("Error: "+str(separated_cards[i])+" is not separated into question and answer")
     elif separated_cards[i].count(',.')>1:
-      return "Error: "+str(separated_cards[i])+" has too many answers."
+      print("Error: "+str(separated_cards[i])+" has too many answers.")
     else:
       if separated_cards[i][len(separated_cards[i])-2:len(separated_cards[i])] ==',.':
-        return "Error, make sure there is an answer!"
+        print("Error, make sure there is an answer!")
       else:
         question = separated_cards[i][0:separated_cards[i].index(',.')]
         answer = separated_cards[i][separated_cards[i].index(',.')+2:len(separated_cards[i])]
