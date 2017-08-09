@@ -37,7 +37,7 @@ def add_card(card_string):
 
 def study():
   study_input=input("What next?")
-  print study_input
+  print(study_input)
   user_prompt()
 
 def list():
