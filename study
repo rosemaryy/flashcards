@@ -15,6 +15,7 @@ def user_prompt():
   elif user_input.lower()=='-help':
     help()
   elif user_input[0:2]!=',.' and user_input[0:2]!='..' and ',.' in user_input and '..' in user_input:
+    print('adding cards')
     if user_input.count(',.')!=user_input.count('..'):
       print("hmm, make sure you have an equal number of ',.' and '..'!")
     else:
