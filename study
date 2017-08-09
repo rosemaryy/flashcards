@@ -15,16 +15,17 @@ def user_prompt():
   elif user_input.lower()=='-help':
     help()
   elif user_input[0:2]!=',.' and user_input[0:2]!='..' and ',.' in user_input and '..' in user_input:
-    print('adding cards')
     if user_input.count(',.')!=user_input.count('..'):
       print("hmm, make sure you have an equal number of ',.' and '..'!")
     else:
+      print('adding cards')
       add_card(user_input)
   else:
     print("Error, try again.")
     user_prompt()
 
 def add_card(card_string):
+  print('inside add card function')
   separated_cards=card_string.split('..')
   for i in range(0, len(separated_cards)):
     if ',.' not in separated_cards[i]:
@@ -38,6 +39,7 @@ def add_card(card_string):
         question = separated_cards[i][0:separated_cards[i].index(',.')]
         answer = separated_cards[i][separated_cards[i].index(',.')+2:len(separated_cards[i])]
         cards.append([question, answer, 10])
+  print('outside add card function')
   user_prompt()
 
 def study():
