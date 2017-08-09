@@ -52,7 +52,7 @@ def list_cards():
     list_table.field_names=["Question", "Answer", "Rating"]
     for i in range(0, len(cards)):
       list_table.add_row(str(cards[i][0]), str(cards[i][1]), str(cards[i][2]))
-    print list_table
+    print(list_table)
   user_prompt()
   
 def remove_card(index):
