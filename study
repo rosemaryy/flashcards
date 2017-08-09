@@ -66,7 +66,14 @@ def remove_card(index):
   user_prompt()
   
 def list_removed():
-  print("list removed")
+  if len(removed)==0:
+    print("You currently have no removed cards")
+  else:
+    removed_list_table=PrettyTable()
+    removed_list_table.field_names=["Index","Question", "Answer", "Rating"]
+    for i in range(0, len(removed)):
+      removed_list_table.add_row([i, str(removed[i][0]), str(removed[i][1]), str(removed[i][2])])
+    print(removed_list_table)
   user_prompt()
   
 def help():
