@@ -41,7 +41,7 @@ def add_card(card_string):
         cards.append([question, answer, 10])
   user_prompt()
 
-def study(): #FIX THIS FUNCTION
+def study(): 
   current_card=showcard()
   study_input=input("to flip, type -f")
   check_study_stop(study_input)
@@ -67,9 +67,9 @@ def showcard():
     #print("the card is "+str(cards[i]))
     for j in range(0, cards[i][2]):
       temp.append(cards[i])
-  print("TEMP")
-  print(temp)
-  print()
+  #print("TEMP")
+  #print(temp)
+  #print()
   current_card=random.choice(temp)
   print(current_card[0])
   return current_card
