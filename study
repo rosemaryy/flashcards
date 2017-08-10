@@ -49,11 +49,11 @@ def study(): #FIX THIS FUNCTION
   if study_input.lower()!='-f':
     print("error, type -f to flip")
   else:
-    print(current_card[2])
+    print(current_card[1])
     study_input=input("Rate from 1-5.")
     #print("past rate")
     check_study_stop(study_input)
-    current_card[3]=int(study_input)
+    current_card[2]=int(study_input)
     study()
 
 def check_study_stop(input):
@@ -68,7 +68,7 @@ def showcard():
     for j in range(0, cards[i][2]):
       temp.append(cards[i])
   current_card=random.choice(temp)
-  print(current_card[1])
+  print(current_card[0])
   return current_card
   
 def list_cards():
