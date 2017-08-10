@@ -52,7 +52,7 @@ def study(): #FIX THIS FUNCTION
     print(current_card[1])
     study_input=input("Rate from 1-5.")
     print("past rate")
-    current_card[2]=study_input
+    current_card[2]=int(study_input)
     study()
 
 def check_study_stop(input):
@@ -62,8 +62,8 @@ def check_study_stop(input):
 def showcard():
   temp=[]
   for i in range(0, len(cards)):
-    print(str(cards[i][2])+"=rating")
-    print("the card is "+str(cards[i]))
+    #print(str(cards[i][2])+"=rating")
+    #print("the card is "+str(cards[i]))
     for j in range(0, cards[i][2]):
       temp.append(cards[i])
   current_card=random.choice(temp)
