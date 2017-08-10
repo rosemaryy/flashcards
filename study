@@ -42,18 +42,18 @@ def add_card(card_string):
   user_prompt()
 
 def study(): #FIX THIS FUNCTION
-  showcard()
+  current_card=showcard()
   study_input=input("to flip, type -f")
   check_study_stop(study_input)
-  current_card=showcard()
+  #current_card=showcard()
   if study_input.lower()!='-f':
     print("error, type -f to flip")
   else:
-    print(current_card[1])
+    print(current_card[2])
     study_input=input("Rate from 1-5.")
     #print("past rate")
     check_study_stop(study_input)
-    current_card[2]=int(study_input)
+    current_card[3]=int(study_input)
     study()
 
 def check_study_stop(input):
@@ -68,7 +68,7 @@ def showcard():
     for j in range(0, cards[i][2]):
       temp.append(cards[i])
   current_card=random.choice(temp)
-  print(current_card[0])
+  print(current_card[1])
   return current_card
   
 def list_cards():
