@@ -2,11 +2,14 @@ from prettytable import PrettyTable
 import random
 cards=[]
 removed=[]
+total_card_string=""
 
 def user_prompt():
   user_input = input("What would you like to do?\n")
   if user_input.lower()=='-study':
     study()
+  elif user_input.lower()=='-save':
+    save_cards()
   elif user_input.lower()=='-list':
     list_cards()
   elif user_input[0:8].lower()=='-remove(' and user_input[len(user_input)-1]==")" and user_input[8:len(user_input)-1].isdigit():
@@ -26,6 +29,7 @@ def user_prompt():
     user_prompt()
 
 def add_card(card_string):
+  total_card_string+=card_string
   separated_cards=card_string.split('..')
   for i in range(0, len(separated_cards)-1):
     if separated_cards[i].index(',.')==-1:
@@ -85,6 +89,11 @@ def list_cards():
     print(list_table)
   user_prompt()
   
+def save_cards():
+  for i in range(0, len(cards)):
+    print("Copy Paste this for the next study session!\n")
+    print(total_card_string)
+    
 def remove_card(index):
   index=int(index)
   if index>=len(cards) or index<0:
@@ -108,7 +117,7 @@ def list_removed():
   
 def help():
   print("Enter questions and answers in this format: question1,.answer1..question2,.answer2..")
-  print("To study and rate cards, type -study.\nTo list all cards, type -list.\nTo remove a card, type -remove(index). The index is shown in list view.\nTo list removed cards, type -listrem.\nTo get help, type -help.")
+  print("To study and rate cards, type -study.\nTo list all cards, type -list.\nTo remove a card, type -remove(index). The index is shown in list view.\nTo list removed cards, type -listrem.\nTo get help, type -help.\nTo copy paste the cards for the next session, type -save")
   print("\nWhile studying, you will first be shown the card's 'front', it's 'question'. \nBy typing -f, the card will flip and show the answer. \nNext, you will be prompted to rate your mastery of the card. \nStop the study session by typing -stop.")
   print("When a new card is entered, its default 'rating' is 10. \nWhile studying, you will rate the cards from 1-5, with 5 being the least understood and 1 being the most understood.")
   user_prompt()
